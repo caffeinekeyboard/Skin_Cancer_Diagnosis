@@ -35,11 +35,9 @@ validation_dir = os.getcwd() + "/data/reorganized_validation/"
 
 #Set up the image augmenter
 datagen = K.preprocessing.image.ImageDataGenerator(
-    rotation_range = 40,
-    width_shift_range = 0.2,
-    height_shift_range = 0.2,
-    shear_range = 0.2,
-    zoom_range = 0.2,
+    rotation_range = 2,
+    shear_range = 0.01,
+    zoom_range = 0.01,
     horizontal_flip = True,
     vertical_flip = True,
     fill_mode = 'nearest'
@@ -69,6 +67,17 @@ balance_dict = {
     'df' : 58
 }
 
+#Graphing help
+count_dict = {
+    'nv' : 0,
+    'mel' : 0,
+    'bkl' : 0,
+    'bcc' : 0,
+    'akiec' : 0,
+    'vasc' :  0,
+    'df' : 0
+}
+
 #Copy all the images to subfolders
 for i in label:
     os.mkdir(train_dir + str(i) + "/")
@@ -82,6 +91,7 @@ for i in label:
             #Add to training set.
             shutil.copyfile((data_dir+"/"+id+".jpg"), (train_dir+i+"/"+id+".jpg"))
             train_examples+=1
+            count_dict[i]+=1
             if(balance_dict[i]>0):
                 img = load_img(data_dir+"/"+id+".jpg")
                 x = img_to_array(img)
@@ -90,12 +100,14 @@ for i in label:
                 for batch in datagen.flow(x, batch_size=1, save_to_dir=(train_dir+i), save_prefix='augmented', save_format='jpg'):
                     count+=1
                     train_examples+=1
+                    count_dict[i]+=1
                     if(count>balance_dict[i]):
                         break
         elif(random_num<0.9):
             #Add to crossvalidation set.
             shutil.copyfile((data_dir+"/"+id+".jpg"), (validation_dir+i+"/"+id+".jpg"))
             validation_examples+=1
+            count_dict[i]+=1
             if(balance_dict[i]>0):
                 img = load_img(data_dir+"/"+id+".jpg")
                 x = img_to_array(img)
@@ -104,12 +116,14 @@ for i in label:
                 for batch in datagen.flow(x, batch_size=1, save_to_dir=(validation_dir+i), save_prefix='augmented', save_format='jpg'):
                     count+=1
                     validation_examples+=1
+                    count_dict[i]+=1
                     if(count>balance_dict[i]):
                         break
         else:
             #Add to testing set.
             shutil.copyfile((data_dir+"/"+id+".jpg"), (test_dir+i+"/"+id+".jpg"))
             test_examples+=1
+            count_dict[i]+=1
             if(balance_dict[i]>0):
                 img = load_img(data_dir+"/"+id+".jpg")
                 x = img_to_array(img)
@@ -117,7 +131,8 @@ for i in label:
                 count = 0
                 for batch in datagen.flow(x, batch_size=1, save_to_dir=(test_dir+i), save_prefix='augmented', save_format='jpg'):
                     count+=1
-                    train_examples+=1
+                    test_examples+=1
+                    count_dict[i]+=1
                     if(count>balance_dict[i]):
                         break
     label_images = []
@@ -128,6 +143,15 @@ plt.bar(list(graph_data.keys()), list(graph_data.values()), width=0.4)
 plt.xlabel("Data Split")
 plt.ylabel("Examples")
 plt.title("Train-Test-Validation Split")
+plt.show()
+
+#Graphing
+label_names = list(count_dict.keys())
+label_values = list(count_dict.values())
+plt.bar(label_names, label_names, width=0.4)
+plt.xlabel("Examples Split")
+plt.ylabel("Examples")
+plt.title("Skew Resolve")
 plt.show()
 
 #Get rid of the original data pool to save space
