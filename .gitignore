@@ -1,2 +1,3 @@
 Model_Construction/InceptionResNetV2/data/
-Model_Construction/InceptionResNetV2/Reorganized_Data/
+Model_Construction/InceptionResNetV2/best_model_dn121.hdf5
+Model_Construction/InceptionResNetV2/Prototyped_Models/
