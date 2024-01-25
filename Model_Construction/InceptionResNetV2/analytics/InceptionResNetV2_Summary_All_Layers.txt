@@ -63,6 +63,7 @@ ________________________________________________________________________________
                                                                                                   
  batch_normalization_6 (Bat  (None, 25, 25, 48)           144       ['conv2d_6[0][0]']            
  chNormalization)                                                                                 
+ 
                                                                                                   
  batch_normalization_9 (Bat  (None, 25, 25, 96)           288       ['conv2d_9[0][0]']            
  chNormalization)                                                                                 
