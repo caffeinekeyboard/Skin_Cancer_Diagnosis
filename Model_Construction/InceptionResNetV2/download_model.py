@@ -38,8 +38,8 @@ def save_response_content(response, destination):
                 f.write(chunk)
 
 
-file_id_1 = '1GCbjF3KZ3v82jQ3cUwoZhQP2KRluPsUA'
-file_id_2 = '1oIxsx1GNKwLllbOz3_-lJxU_vA416Lgg'
+file_id_1 = '1veJ67rK1Q2bugTUl8PoOHhVAkYnU2qUT'
+file_id_2 = '1eBzyMPOc1-pK8avMI7ikL1j1PmKW4m2F'
 destination_1 = os.getcwd() + "/InceptionResNetV2_Lite.tflite"
 destination_2 = os.getcwd() + "/InceptionResNetV2_Standard.h5"
 download_file_from_google_drive(file_id_1, destination_1)
