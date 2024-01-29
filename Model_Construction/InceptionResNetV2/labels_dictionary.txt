@@ -1,3 +1,6 @@
+This index arrangement follows the indexing used by the model in prediction.
+DO NOT CHANGE INDEXING. You may change the formatting.
+
 'akiec': 0, 
 'bcc': 1, 
 'bkl': 2, 
