@@ -38,10 +38,16 @@ def save_response_content(response, destination):
             if chunk: # filter out keep-alive new chunks
                 f.write(chunk)
 
-
-file_id_1 = '1veJ67rK1Q2bugTUl8PoOHhVAkYnU2qUT'
-file_id_2 = '1eBzyMPOc1-pK8avMI7ikL1j1PmKW4m2F'
-destination_1 = os.getcwd() + "/InceptionResNetV2_Lite.tflite"
-destination_2 = os.getcwd() + "/InceptionResNetV2_Standard.h5"
+os.mkdir('Models')
+file_id_1 = '1-7cwaHnlEwLELT5QbEkirtFCjseLNo0d'
+file_id_2 = '1irtCf1bJSo65yb8sZ72zT_pJOenxWaSP'
+file_id_3 = '1ssx7T7bUMsUC-FE53ZRX_Zwj_bxgNN3Z'
+file_id_4 = '1Z2YMA-UTOYWN75pKUxJI1upWwqMIfmMK'
+destination_1 = os.getcwd() + "/Models/InceptionResNetV2_HDF5.hdf5"
+destination_2 = os.getcwd() + "/Models/InceptionResNetV2_H5.h5"
+destination_3 = os.getcwd() + "/Models/InceptionResNetV2_Lite.tflite"
+destination_4 = os.getcwd() + "/Models/InceptionResNetV2_Lite_Optimized.tflite"
 download_file_from_google_drive(file_id_1, destination_1)
 download_file_from_google_drive(file_id_2, destination_2)
+download_file_from_google_drive(file_id_3, destination_3)
+download_file_from_google_drive(file_id_4, destination_4)
