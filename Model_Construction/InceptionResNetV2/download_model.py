@@ -3,6 +3,7 @@
     ----------24 January 2024 | Aarya Bhave | Commited to Skin_Cancer_Diagnosis----------
     I have unfortunately ran out of my monthly quota for git lfs.
     So here's a python script to download the model.
+    THIS FILE GETS SAVED IN YOUR CWD. PLEASE CHECK YOUR CWD AND CHECK ENVIRONMENT BEFORE RUNNING!!!
     Godspeed. :-)    
 '''
 import requests
