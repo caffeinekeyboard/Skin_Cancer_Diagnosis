@@ -3,3 +3,4 @@ Model_Construction/InceptionResNetV2/best_model_dn121.hdf5
 Model_Construction/InceptionResNetV2/Prototype_Models/
 Model_Construction/InceptionResNetV2/InceptionResNetV2_Loadable/
 Model_Construction/InceptionResNetV2/Manual_Testing/
+Trees_Construction/all_images/
