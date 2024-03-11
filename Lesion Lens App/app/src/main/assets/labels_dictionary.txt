@@ -1,0 +1,7 @@
+'Actinic Keratoses': 0, 
+'Basal Cell-Carcinoma': 1, 
+'Benign Keratosis-Like Lesions': 2, 
+'Dermatofibroma': 3, 
+'Memelanoma': 4, 
+'Melanocytic Nevi': 5, 
+'Vascular Lesions': 6
