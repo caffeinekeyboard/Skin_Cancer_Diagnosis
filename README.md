@@ -12,6 +12,7 @@ We trained InceptionResNet-v2 and ResNet-50 on the Human Against Machine - 10000
 |---|---|---|
 | ResNet-50 | 23M | 76.28% |
 | InceptionResNet-v2 | 55M | 89.02% |
+
 ![Final Confusion Matrix](https://github.com/caffeinekeyboard/Skin_Cancer_Diagnosis/assets/96489029/0dda8c7a-7daa-4779-b879-08f5b56a95bd)
 
 
